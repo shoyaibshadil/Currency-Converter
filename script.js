@@ -6,6 +6,10 @@ const fromCurr = document.querySelector(".from select");
 const toCurr = document.querySelector(".to select");
 const msg = document.querySelector(".msg");
 
+window.addEventListener("load", () => {
+    updateExchangeRate();
+})
+
 for (let select of dropdowns) {
     for (currCode in countryList) {
         let newOption = document.createElement("option");
@@ -33,8 +37,12 @@ const updateFlag = (element) => {
     img.src = newSrc;
 }
 
-btn.addEventListener("click",async (evnt) => {
+btn.addEventListener("click", (evnt) => {
     evnt.preventDefault();
+    updateExchangeRate();
+})
+
+const updateExchangeRate = async () => {
     let amount = document.querySelector(".amount input");
     let amtVal = amount.value;
     if (amtVal == "" || amtVal < 1) {
@@ -49,4 +57,4 @@ btn.addEventListener("click",async (evnt) => {
     
     let finalAmount = amtVal* rate;
     msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
-})
+}
