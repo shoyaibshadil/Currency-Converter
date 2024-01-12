@@ -18,6 +18,7 @@ body {
     background-color: #161922;
     color: #e1ecf4;
     padding: 1.8rem;
+    border: 0.1px solid #e1ecf4;
     border-radius: 0.9rem;
     min-height: 45vh;
     width: 45vh;
